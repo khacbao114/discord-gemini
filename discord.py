@@ -21,7 +21,7 @@ last_ai_response = None  # Menyimpan respons AI terakhir
 def log_message(message):
     print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {message}")
 
-def generate_reply(prompt, use_google_ai=True, use_file_reply=False, language="id"):
+def generate_reply(prompt, use_google_ai=True, use_file_reply=False, language="vn"):
     """Generates a reply, avoiding duplication if using Google Gemini AI"""
 
     global last_ai_response  #Use global variable for session-wide access
