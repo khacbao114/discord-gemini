@@ -159,11 +159,11 @@ if __name__ == "__main__":
         use_google_ai = input("Use Google Gemini AI for replies? (y/n): ").lower() == 'y'
         use_file_reply = input("Use messages from the pesan.txt file? (y/n): ").lower() == 'y'
         reply_mode = input("Do you want to reply to messages (reply) or just send messages? (reply/send): ").lower() == 'reply'
-        language_choice = input("Choose the reply language (vn/en): ").lower()
+        language_choice = input("Choose the reply language (vi/en): ").lower()
 
         if language_choice not in ["vi", "en"]:
             log_message("⚠️ Invalid language, defaulting to Vietnam.")
-            language_choice = "vivi"
+            language_choice = "vi"
 
         read_delay = int(input("Set the delay for reading new messages (in seconds): "))
         reply_delay = int(input("Set the delay for replying to messages (in seconds): "))
