@@ -62,7 +62,7 @@ def generate_reply(prompt, use_google_ai=True, use_file_reply=False, language="v
                 return None
 
         log_message("⚠️ AI keeps giving the same response, using the last available response.")
-        return {"candidates": [{"content": {"parts": [{"text": last_ai_response or 'Maaf, không thể trả lời.'}]}}]}
+        return {"candidates": [{"content": {"parts": [{"text": last_ai_response or 'không thể trả lời.'}]}}]}
 
     else:
         return {"candidates": [{"content": {"parts": [{"text": get_random_message()}]}}]}
