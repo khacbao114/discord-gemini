@@ -21,7 +21,7 @@ last_ai_response = None  # Menyimpan respons AI terakhir
 def log_message(message):
     print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {message}")
 
-def generate_reply(prompt, use_google_ai=True, use_file_reply=False, language="vn"):
+def generate_reply(prompt, use_google_ai=True, use_file_reply=False, language="vi"):
     """Generates a reply, avoiding duplication if using Google Gemini AI"""
 
     global last_ai_response  #Use global variable for session-wide access
@@ -35,7 +35,7 @@ def generate_reply(prompt, use_google_ai=True, use_file_reply=False, language="v
         if language == "en":
             ai_prompt = f"{prompt}\n\nRespond with only one sentence in casual urban English, like a natural conversation, and do not use symbols."
         else:
-            ai_prompt = f"{prompt}\n\nProvide only one sentence in Vietnam language, like a casual conversation, and do not use any symbols."
+            ai_prompt = f"{prompt}\n\nTrả lời tin nhắn bằng 1 câu tiếng việt, một cách tự nhiên như trò chuyện thật, không sử dụng dấu cảm thán."
 
         url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={google_api_key}'
         headers = {'Content-Type': 'application/json'}
@@ -161,14 +161,14 @@ if __name__ == "__main__":
         reply_mode = input("Do you want to reply to messages (reply) or just send messages? (reply/send): ").lower() == 'reply'
         language_choice = input("Choose the reply language (vn/en): ").lower()
 
-        if language_choice not in ["vn", "en"]:
+        if language_choice not in ["vi", "en"]:
             log_message("⚠️ Invalid language, defaulting to Vietnam.")
-            language_choice = "vn"
+            language_choice = "vivi"
 
         read_delay = int(input("Set the delay for reading new messages (in seconds): "))
         reply_delay = int(input("Set the delay for replying to messages (in seconds): "))
 
-        log_message(f"✅ Mode reply {'aktif' if reply_mode else 'non-reply'} dalam bahasa {'Vietnam' if language_choice == 'vn' else 'Inggris'}...")
+        log_message(f"✅ Mode reply {'aktif' if reply_mode else 'non-reply'} dalam bahasa {'Vietnam' if language_choice == 'vi' else 'Inggris'}...")
         auto_reply(channel_id, read_delay, reply_delay, use_google_ai, use_file_reply, language_choice, reply_mode)
 
     else:
